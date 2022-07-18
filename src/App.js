@@ -13,7 +13,11 @@ function App() {
   //stateを使って、todoを追加する
   
   const handleOnCreate = () => {
+
+
     this.setTodo = todo;
+    setTodoList([...todoList, todo]);
+    this.setState = todo;
   }
 
   //handleOnChangeを使って、todoを変更する→今はしなくていい
@@ -22,33 +26,20 @@ function App() {
   //handleOnRemoveを使って、todoを削除する
   const handleOnDelete = () => {
 
+    const filter = todoList.filter(todo => todo.id !== id);
   }
 
   return (
     <div className="App">
+
       {/*　formを作成する*/} 
       <form >
-
       {/*　inputでテキスト入力を作成する*/} 
       {/*　inputでtodo作成ボタンを作成する */} 
       <input type="text" />
-      <button type="submit">作成</button>
-      
-      <header className="App-header">
-      
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button type="submit" onClick={handleOnCreate} >作成</button>
       </form>
+
        {/*　作成したtodoをmapリストで表示する　*/}
       {/* 
        {todoList.map((todo) => (
@@ -60,7 +51,8 @@ function App() {
       } 
       */}
       {/*　削除ボタンを作る　*/} 
-      <button type="submit">削除</button>
+      <button type="submit" onClick={handleOnDelete}>削除</button>
+
     </div>
   );
 }
