@@ -20,7 +20,7 @@ function App() {
   //handleOnCheckを使って、todoを完了する→今はしなくていい
 
   //handleOnRemoveを使って、todoを削除する
-  const handleOnRemove = () => {
+  const handleOnDelete = () => {
 
   }
 
@@ -49,11 +49,18 @@ function App() {
         </a>
       </header>
       </form>
-       {/*　todoをmapで表示する　*/} 
+       {/*　作成したtodoをmapリストで表示する　*/}
+      {/* 
+       {todoList.map((todo) => (
+          return (
+            <ul>
+            <li>{todo}</li>
+            </ul>  
+        )
+      } 
+      */}
       {/*　削除ボタンを作る　*/} 
       <button type="submit">削除</button>
-
-      <></>
     </div>
   );
 }
