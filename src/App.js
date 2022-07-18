@@ -11,7 +11,8 @@ function App() {
 
   //handleOnCreateを使って、todoを追加する
   //stateを使って、todoを追加する
-  handleOnCreate = () => {
+  
+  const handleOnCreate = () => {
     this.setTodo = todo;
   }
 
@@ -19,7 +20,7 @@ function App() {
   //handleOnCheckを使って、todoを完了する→今はしなくていい
 
   //handleOnRemoveを使って、todoを削除する
-  handleOnRemove = () => {
+  const handleOnRemove = () => {
 
   }
 
@@ -27,14 +28,12 @@ function App() {
     <div className="App">
       {/*　formを作成する*/} 
       <form >
-        
+
       {/*　inputでテキスト入力を作成する*/} 
       {/*　inputでtodo作成ボタンを作成する */} 
+      <input type="text" />
+      <button type="submit">作成</button>
       
-      
-      {/*　todoをmapで表示する　*/} 
-      {/*　削除ボタンを作る　*/} 
-     
       <header className="App-header">
       
         <p>
@@ -50,6 +49,11 @@ function App() {
         </a>
       </header>
       </form>
+       {/*　todoをmapで表示する　*/} 
+      {/*　削除ボタンを作る　*/} 
+      <button type="submit">削除</button>
+
+      <></>
     </div>
   );
 }
