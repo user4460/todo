@@ -22,7 +22,7 @@ function App() {
     setTodo(e.target.value);
   }
 
-  //handleAddを使って、todoを追加する
+  //handleAddを使って、配列todosに追加する
   const handleAdd = () => {
     todos.push()
   }
@@ -43,7 +43,7 @@ function App() {
 
       {/*"リスト形式で以下の項目を作る ・進捗状態・編集ボタン・削除ボタン"	"ul,li button"*/}
       {/*　作成したtodoをmapリストで表示する */}
-      {todo.map(() => {
+      {todos.map(() => {
         <ul>
           <li key={todo.id}>{todo}</li>
         </ul>
