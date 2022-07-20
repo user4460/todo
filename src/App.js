@@ -12,7 +12,7 @@ function App() {
   //useStateを使って、stateを定義する //todoListとtodoの一つで分ける?
   {/* コンポーネント内に ・todosステートを定義する・初期値を入れておく
 	初期値は全パターン網羅できるように定義しておくと便利  useState */}
-  
+
   const [todos, setTodos] = useState([]);
   const [todo, setTodo] = useState('');
 
@@ -57,7 +57,7 @@ function App() {
 　        ・引数にTodoのidもしくはindexを渡して特定のTodoが削除できるようにする"	"引数
             array.filter()もしくはarray.splice() */}
 
-      <button type="submit" onClick={(id) => { array.splice(id) }}>削除</button>
+      <button type="submit" onClick={(id) => { todos.splice(id) }}>削除</button>
     </div>
   );
 }
