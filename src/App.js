@@ -1,4 +1,3 @@
-//すべきこと
 //stateにtodoを入れる
 //stateからtodoを表示させる
 //todoを削除する方法
@@ -36,7 +35,7 @@ function App() {
 　     ・引数にTodoのidを渡して特定のTodoが削除できるようにする"	
        array.filter()もしくはarray.splice() */
   const handleDelete = (targetTodo) => {
-     todos.filter((todo) => todo.id !== targetTodo.id);
+     setTodos(todos.filter((todo) => todo.id !== targetTodo.id));
   }
 
   return (
