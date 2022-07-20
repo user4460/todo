@@ -15,21 +15,28 @@ function App() {
 
   const [todos, setTodos] = useState([]);
   const [todo, setTodo] = useState('');
-  const [id, setId] = useState(); //引数は時間系?
+  const [id, setId] = useState(); 
 
-  //handleCreateを使って、todoを作成する
+  //handleCreateを使って、todoを作成する 
   const handleCreate = (e) => {
     setTodo(e.target.value);
   }
 
   //handleAddを使って、配列todosに追加する
   const handleAdd = () => {
-    todos.push()
+    setTodos([...todos,{id:id, todo:todo}])
+    setId(id + 1)
+    setTodo('');
   }
 
-  //handleDeleteを使って、todoを削除する
-  const handleDelete = () => {
-    const filter = todos.filter(todo => todo.id !== id);
+  /* handleDeleteを使って、todoを削除する　
+  ・引数にはTodoのidを定義する
+　     ・渡されたTodoのidを使ってtodos配列内の特定のTodoを削除する
+      ・削除ボタンを押したときに削除メソッドが実行
+　     ・引数にTodoのidを渡して特定のTodoが削除できるようにする"	
+       array.filter()もしくはarray.splice() */
+  const handleDelete = (targetTodo) => {
+     todos.filter((todo) => todo.id !== targetTodo.id);
   }
 
   return (
@@ -46,19 +53,10 @@ function App() {
       {todos.map(() => {
         <ul>
           <li key={todo.id}>{todo}</li>
+          {/*"削除ボタンを作る・特定のTODOを削除するメソッドを定義する。*/}
+          <button onClick={() => handleDelete(todo)}>削除</button>
         </ul>
       })}
-
-      {/*"削除ボタンを作る
-       ・特定のTODOを削除するメソッドを定義する。
-       ・引数にはTodoのidを定義する
-　     ・渡されたTodoのidを使ってtodos配列内の特定のTodoを削除する
-      ・削除ボタンを押したときに削除メソッドが実行
-　     ・引数にTodoのidを渡して特定のTodoが削除できるようにする"	
-       array.filter()もしくはarray.splice() 
-       */}
-
-    {/*  <button type="submit" onClick={handleDelete}>削除</button>*/}
     </div>
   );
 }
