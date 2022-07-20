@@ -17,7 +17,7 @@ function App() {
   const [todo, setTodo] = useState('');
   const [id, setId] = useState(); //引数は時間系?
 
-  //handleCreateを使って、todoを作成する,stateを使って、todoを追加する
+  //handleCreateを使って、todoを作成する
   const handleCreate = (e) => {
     setTodo(e.target.value);
   }
@@ -36,7 +36,7 @@ function App() {
     <div className="App">
       {/*　formを作成する*/}
       <form >
-        {/*　inputでテキスト入力を作成する,buttonでtodo作成ボタンを作成する */}
+        {/*　inputでtodo入力を作成する,buttonでtodo作成ボタンを作成する */}
         <input type="text" value={todo} onChange={handleCreate} />
         <button type="submit" onClick={handleAdd} >作成</button>
       </form>
@@ -58,7 +58,7 @@ function App() {
        array.filter()もしくはarray.splice() 
        */}
 
-      <button type="submit" onClick={handleDelete}>削除</button>
+    {/*  <button type="submit" onClick={handleDelete}>削除</button>*/}
     </div>
   );
 }
