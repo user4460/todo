@@ -1,7 +1,3 @@
-//stateにtodoを入れる
-//stateからtodoを表示させる
-//todoを削除する方法
-
 //react,useStateをインポートする
 import React from 'react';
 import { useState } from 'react';
