@@ -15,13 +15,17 @@ function App() {
   //handleCreateを使って、todoを作成する 
   const handleCreate = (e) => {
     setTodo(e.target.value);
+    console.log(e.target.value);
   }
 
   //handleAddを使って、配列todosに追加する
   const handleAdd = () => {
-    setTodos([...todos,{id:id, todo:todo}])
+    setTodos([{id:id, todo:todo}, ...todos])
+    console.log(todos)
     setId(id + 1)
+    console.log(todos.id)
     setTodo('');
+    console.log(todo)
   }
 
   /* handleDeleteを使って、todoを削除する　
@@ -32,6 +36,7 @@ function App() {
        array.filter()もしくはarray.splice() */
   const handleDelete = (targetTodo) => {
      setTodos(todos.filter((todo) => todo.id !== targetTodo.id));
+     console.log(todo)
   }
 
   return (
