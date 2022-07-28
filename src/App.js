@@ -12,7 +12,7 @@ function App() {
   //handleCreateを使って、todoを作成する 
   const handleCreate = (e) => {
     setTodoTitle(e.target.value);
-    console.log(e.target.value);
+    //console.log(e.target.value);
   }
 
   //handleAddを使って、配列todosに追加する
@@ -20,7 +20,7 @@ function App() {
     setTodos([...todos,{id:todoId, title:todoTitle }])
     console.log(todos)
     setTodoId(todoId + 1)
-    console.log(todos.id)
+    console.log(todoId)
     setTodoTitle('')
     console.log(todoTitle)
   }
@@ -32,14 +32,16 @@ function App() {
         <form onSubmit={(e) => e.preventDefault()}>
           {/*　inputでtodo入力を作成する,buttonでtodo作成ボタンを作成する */}
           <input type="text" label="タイトル" value={todoTitle} onChange={handleCreate} />
-          <button  type="submit" value="作成" onClick={handleAdd}  >作成</button>
+          <button type="submit" value="作成" onClick={handleAdd} >作成</button>
         </form>
-        <p>{todoTitle}</p>
+        {/*<p>{todoTitle}</p> */}
         {/*"リスト形式で以下の項目を作る,"ul,li button",作成したtodoをmapリストで表示する */}
         <ul>
-          {todos.map((todo) => {
-            <li key={todo.id}><span>{todo.title}</span></li>
-          })}
+          {todos.map((todo) => (
+            <li key={todo.id}>
+              <span>{todo.title}</span>
+            </li>
+          ))}
         </ul>
       </div>
     </>
