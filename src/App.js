@@ -18,11 +18,11 @@ function App() {
   //handleAddを使って、配列todosに追加する
   const handleAdd = () => {
     setTodos([...todos, { id: todoId, title: todoTitle }])
-    console.log(todos)
+    //console.log(todos)
     setTodoId(todoId + 1)
-    console.log(todoId)
+    //console.log(todoId)
     setTodoTitle('')
-    console.log(todoTitle)
+    //console.log(todoTitle)
   }
 
   /* handleDeleteを使って、todoを削除する　 array.filter()もしくはarray.splice() 
@@ -32,9 +32,9 @@ function App() {
     ・引数にTodoのidを渡して特定のTodoが削除できるようにする"	
   */
 
-  const handleDelete = (targetTodo) => {
-    setTodos(todos.filter((todo) => todo.id !== targetTodo.id));
-    console.log(todos)
+  const handleDelete = (clickTodo) => {
+    setTodos(todos.filter((todo) => todo.id !== clickTodo.id));
+    //console.log(todos)
   }
 
   return (
@@ -56,12 +56,10 @@ function App() {
             </li>
           ))}
         </ul>
+      {/* <p>{todoTitle}</p> */}
       </div>
     </>
   );
 }
 
 export default App;
-
-
-
