@@ -3,17 +3,11 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  {/* コンポーネント内に ・todosステートを定義する・初期値を入れておく
-	初期値は全パターン網羅できるように定義しておくと便利  useState */}
+  {/* コンポーネント内に ・todosステートを定義する */}
 
-  const [todos, setTodos] = useState([
-    { id: 1, title: '姉に誕生日プレゼントを買う' },
-    { id: 2, title: '論文提出' },
-    { id: 3, title: '市役所に住民票の写しをもらいに行く' }
-  ])
+  const [todos, setTodos] = useState([])
   const [todoTitle, setTodoTitle] = useState('');
-
-  //const [id, setId] = useState(); 
+  const [todoId, setTodoId] = useState(0); 
 
   //handleCreateを使って、todoを作成する 
   const handleCreate = (e) => {
@@ -22,30 +16,29 @@ function App() {
   }
 
   //handleAddを使って、配列todosに追加する
-  /*
   const handleAdd = () => {
-    setTodos([{id:id, todoTitle:todoTitle}, ...todos])
+    setTodos([...todos,{id:todoId, title:todoTitle }])
     console.log(todos)
-    //setId(id + 1)
+    setTodoId(todoId + 1)
     console.log(todos.id)
-    setTodoTitle('');
+    setTodoTitle('')
     console.log(todoTitle)
   }
-  */
+  
 
   return (
     <>
       <div className="App">
-        <form >
+        <form onSubmit={(e) => e.preventDefault()}>
           {/*　inputでtodo入力を作成する,buttonでtodo作成ボタンを作成する */}
           <input type="text" label="タイトル" value={todoTitle} onChange={handleCreate} />
-          <button  /* type="submit" value="作成" onClick={handleAdd} */ >作成</button>
+          <button  type="submit" value="作成" onClick={handleAdd}  >作成</button>
         </form>
         <p>{todoTitle}</p>
         {/*"リスト形式で以下の項目を作る,"ul,li button",作成したtodoをmapリストで表示する */}
         <ul>
           {todos.map((todo) => {
-            <li key={todo.id}>{todo.title}</li>
+            <li key={todo.id}><span>{todo.title}</span></li>
           })}
         </ul>
       </div>
